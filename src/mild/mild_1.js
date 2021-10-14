@@ -9,7 +9,7 @@
  * see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
  */
 export function sumToString(a, b) {
-    return '${a} + ${b} = ${a+b}';
+    return `${a} + ${b} = ${a+b}`;
 }
 
 
@@ -46,9 +46,10 @@ export function maxAndMin(numbers) {
     for(let i = 0; i < numbers.length; i++)
     {
         if(numbers[i] > result.max)
+        //    result.max = parseInt(numbers[i], 10);
             result.max = numbers[i];
         if(numbers[i] < result.min)
-            result.min = numbers[i];
+            result.min = parseInt(numbers[i], 10);
     }
     return result;
 
@@ -69,13 +70,13 @@ export function countArray(array) {
     //for loop
     //for the element at index i,
     //if a key for it exists in object result, increment that key. otherwise, create a new key initialized to 1.
-    let result = new Object;
-    for(let i = 0; i < numbers.length; i++)
+    let result = new Object();
+    for(let i = 0; i < array.length; i++)
     {
-        if(result.keys().indexOf('${numbers[i]}') == -1) //if the current value doesn't exist in result
-            result.numbers[i] = 1;
+        if((Object.keys(result)).indexOf(`${array[i]}`) == -1) //if the current value doesn't exist in result
+            result[array[i]] = 1;
         else
-            result.numbers[i]++;
+            result[array[i]]++;
     }
     return result;
 }
