@@ -106,6 +106,4 @@ export function removeKeys(object, keyList)
       delete result[keyList[i]];
    }
    return result;
-
-
 }
