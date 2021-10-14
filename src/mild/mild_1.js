@@ -46,8 +46,7 @@ export function maxAndMin(numbers) {
     for(let i = 0; i < numbers.length; i++)
     {
         if(numbers[i] > result.max)
-        //    result.max = parseInt(numbers[i], 10);
-            result.max = numbers[i];
+            result.max = parseInt(numbers[i], 10);
         if(numbers[i] < result.min)
             result.min = parseInt(numbers[i], 10);
     }
