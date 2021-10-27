@@ -1,7 +1,7 @@
-import { maxAndMin, sumToString, countArray } from "./mild/mild_1.js";
-import { identifyVariable, identifyArray, removeKeyNonDestructive, removeKeys } from "./mild/mild_2.js";
-import { getSum, getMedian, getStatistics } from "./medium/medium_1.js";
-import { allCarStats, moreStats } from "./medium/medium_2.js";
-import { searchHighPower} from "./medium/medium_3.js";
-import mpg_data from "./medium/data/mpg_data.js";
-console.log(searchHighPower(mpg_data, 200, 300));  
+import {repeatDemo, tenTimesFifty, someEven, everyEven, hello, filter, tenTimes} from "./spicy/spicy_9.js";
+
+
+    console.log(filter(['yes', 'nope', 'maybe', 'yellow'], x => x[0] === 'y'));
+//       -->  { pass: ['yes', 'yellow'], fail: ['nope', 'maybe'] }
+    console.log(filter([1, 90, 5, 31], x => x % 2 === 1));
+//       -->  { pass: [1, 5, 31], fail: [90] }
