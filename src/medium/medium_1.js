@@ -69,10 +69,10 @@ export function getStatistics(array)
     result.sum = 0;
     for(let i = 0; i < array.length; i++)
     {
-        if(array[i] > result.max)
+        if(array[i] > max)
             max = array[i];
-        if(array[i] < result.min)
-            result.min = array[i];
+        if(array[i] < min)
+            min = array[i];
         result.sum += array[i];
     }
     result.mean = result.sum / array.length;
