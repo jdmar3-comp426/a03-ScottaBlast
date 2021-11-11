@@ -1,4 +1,3 @@
-import {getMedian} from "./medium/medium_1.js";
+import {allCarStats} from "./medium/medium_2.js";
 
-let array = [2, 1, 2, 7, 55, 99, 6];
-console.log(getMedian(array)); // 4.5
+console.log(allCarStats); // 4.5

@@ -28,9 +28,6 @@ let yearArray = [];
         yearArray.push(mpg_data[i].year);
         if(mpg_data[i].hybrid)
             hybrid+=1;
-        else{
-            notHybrid+=1;
-        }
     }
     city = city/mpg_data.length;
     hwy = hwy/mpg_data.length;
@@ -38,7 +35,7 @@ let yearArray = [];
 export const allCarStats = {
     avgMpg: {city: city, highway: hwy},
     allYearStats: getStatistics(yearArray),
-    ratioHybrids: (hybrid/notHybrid),
+    ratioHybrids: (hybrid/mpg_data.length),
 };
  
 let hasMakeIndex = 0;
