@@ -31,10 +31,11 @@ export function getMedian(array) {
 if(array.length == 0)
     return;
 
-array.sort();
+array.sort((a,b) => a - b);
 
  if(array.length % 2 == 0) // if even
     return (array[Math.floor(array.length/2)] + array[Math.floor(array.length/2) -1]) / 2;  // return the average of the 2 in the middle
+
 return (array[Math.floor(array.length/2)]); // since it is odd, return the element in the middle
 }
 
