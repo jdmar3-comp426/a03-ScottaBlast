@@ -61,8 +61,7 @@ return (array[Math.floor(array.length/2)]); // since it is odd, return the eleme
 export function getStatistics(array)
 {
     let result = new Object();
-    result.min = Number.POSITIVE_INFINITY;
-    result.max = Number.NEGATIVE_INFINITY;
+    result.length = array.length;
     result.sum = 0;
     for(let i = 0; i < array.length; i++)
     {
@@ -72,10 +71,10 @@ export function getStatistics(array)
             result.min = array[i];
         result.sum += array[i];
     }
-
-    result.median = getMedian(array);
-    result.length = array.length;
     result.mean = result.sum / array.length;
+    result.median = getMedian(array);
+    result.min = Number.POSITIVE_INFINITY;
+    result.max = Number.NEGATIVE_INFINITY;
     result.variance = variance(array, result.mean);
     result.standard_deviation = Math.sqrt(result.variance);
     return result;
