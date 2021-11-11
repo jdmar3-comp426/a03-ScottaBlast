@@ -73,7 +73,7 @@ export function getStatistics(array)
             max = array[i];
         if(array[i] < result.min)
             result.min = array[i];
-        sum += array[i];
+        result.sum += array[i];
     }
     result.mean = result.sum / array.length;
     result.median = getMedian(array);
