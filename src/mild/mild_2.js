@@ -72,7 +72,8 @@ export function removeKey(object, key) {
  */
 export function removeKeyNonDestructive(object, key)
 {
-   let result = object;
+   let result = {};
+   result = Object.assign(object, result);
    delete result[key];
    return result;
 }
@@ -100,7 +101,9 @@ export function removeKeyNonDestructive(object, key)
  */
 export function removeKeys(object, keyList)
 {
-   let result = object;
+   let result = {};
+   result = Object.assign(object, result);
+
    for(let i = 0; i < keyList.length; i++)
    {
       delete result[keyList[i]];
