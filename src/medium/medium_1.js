@@ -60,21 +60,25 @@ return (array[Math.floor(array.length/2)]); // since it is odd, return the eleme
  */
 export function getStatistics(array)
 {
+    let min = Number.POSITIVE_INFINITY;
+    let max = Number.NEGATIVE_INFINITY;
+
+
     let result = new Object();
     result.length = array.length;
     result.sum = 0;
     for(let i = 0; i < array.length; i++)
     {
         if(array[i] > result.max)
-            result.max = array[i];
+            max = array[i];
         if(array[i] < result.min)
             result.min = array[i];
-        result.sum += array[i];
+        sum += array[i];
     }
     result.mean = result.sum / array.length;
     result.median = getMedian(array);
-    result.min = Number.POSITIVE_INFINITY;
-    result.max = Number.NEGATIVE_INFINITY;
+    result.min = min;
+    result.max = max;
     result.variance = variance(array, result.mean);
     result.standard_deviation = Math.sqrt(result.variance);
     return result;
