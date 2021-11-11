@@ -35,7 +35,6 @@ export const hello = function() {
 
 export const repeatDemo = () => {
     repeat(hello, 10, 0);
-    console.log("test");
 };
 
 
