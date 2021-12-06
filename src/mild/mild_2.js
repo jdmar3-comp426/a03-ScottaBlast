@@ -5,9 +5,11 @@
  * example: identifyVariable(4);
  * returns: { type: 'number', value: 4 }
  */
-export function identifyVariable(variable) {
-
+export function identifyVariable(variable)
+{
+   return {type: typeof(variable), value: variable};
 }
+
 
 
 /**
@@ -24,7 +26,12 @@ export function identifyVariable(variable) {
 
  */
 export function identifyArray(array) {
-
+   let result = [];
+   for(let i = 0; i < array.length; i++)
+   {
+      result[i] = identifyVariable(array[i]);
+   }
+   return result;
 }
 
 /**
@@ -44,7 +51,7 @@ export function identifyArray(array) {
  obj now does not contain the `password` field
  */
 export function removeKey(object, key) {
-
+   delete object[key];
 }
 
 /**
@@ -63,8 +70,16 @@ export function removeKey(object, key) {
  obj will not have the `password` field only because it was assigned the result of the function.
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
-export function removeKeyNonDestructive(object, key) {
-
+export function removeKeyNonDestructive(object, key)
+{
+   let result = {};
+   let keys = Object.keys(object);
+   for(let i = 0; i < keys.length; i++)
+   {
+      result[keys[i]] = object[keys[i]];
+   }
+   delete result[key];
+   return result;
 }
 
 /**
@@ -88,6 +103,18 @@ export function removeKeyNonDestructive(object, key) {
 
  * @return {*} The object with its keys removed.
  */
-export function removeKeys(object, keyList) {
-
+export function removeKeys(object, keyList)
+{
+   let result = {};
+   let keys = Object.keys(object);
+   for(let i = 0; i < keys.length; i++)
+   {
+      result[keys[i]] = object[keys[i]];
+   }
+   
+   for(let i = 0; i < keyList.length; i++)
+   {
+      delete result[keyList[i]];
+   }
+   return result;
 }

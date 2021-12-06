@@ -7,8 +7,14 @@ import {variance} from "./data/stats_helpers.js";
  * see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
  * prototype functions. Very useful
  */
-export function getSum(array) {
-
+export function getSum(array)
+{
+    let result = 0;
+    for(let i = 0; i < array.length; i++)
+    {
+        result+=array[i];
+    }
+    return result;
 }
 
 
@@ -22,7 +28,15 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
+if(array.length == 0)
+    return;
 
+array.sort((a,b) => a - b);
+
+ if(array.length % 2 == 0) // if even
+    return (array[Math.floor(array.length/2)] + array[Math.floor(array.length/2) -1]) / 2;  // return the average of the 2 in the middle
+
+return (array[Math.floor(array.length/2)]); // since it is odd, return the element in the middle
 }
 
 /**
@@ -44,7 +58,38 @@ export function getMedian(array) {
   standard_deviation: 1.632993161855452
  }
  */
-export function getStatistics(array) {
+export function getStatistics(array)
+{
+    let min = Number.POSITIVE_INFINITY;
+    let max = Number.NEGATIVE_INFINITY;
 
+
+    let result = new Object();
+    result.length = array.length;
+    result.sum = 0;
+    for(let i = 0; i < array.length; i++)
+    {
+        if(array[i] > max)
+            max = array[i];
+        if(array[i] < min)
+            min = array[i];
+        result.sum += array[i];
+    }
+    result.mean = result.sum / array.length;
+    result.median = getMedian(array);
+    result.min = min;
+    result.max = max;
+    result.variance = variance(array, result.mean);
+    result.standard_deviation = Math.sqrt(result.variance);
+    return result;
+    /*
+    min, must loop !
+    median, constant !
+    max, must loop !
+    variance, constant
+    mean, constant !
+    length, constant !
+    sum, must loop !
+    standard deviation, constant, square root of variance !
+    */
 }
-
